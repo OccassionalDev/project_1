@@ -44,10 +44,14 @@ class Tournament
   @@all = [] 
   
   def create_from_array(array)
-    @series = array[0]
-    @name = array[1]
-    @location = array[2]
-    @date = array[3]
+    new_tournament = Tournament.new
+    
+    new_tournament.series = array[0]
+    new_tournament.name = array[1]
+    new_tournament.location = array[2]
+    new_tournament.date = array[3]
+    
+    new_tournament.save
   end 
   
   def self.all 
