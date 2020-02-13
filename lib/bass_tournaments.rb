@@ -22,16 +22,33 @@ class CLI
     case input
     
       when "1"
-        puts Tournament.all 
-        main_menu
+        list_tournaments
       
       when "2"
         exiting_program_message
         
       else 
-        puts "Invalid option, please put in a valid selection."
+        invalid_input_option_error
+        main_menu
     end 
   end 
+  
+  def list_tournaments
+    puts ""
+    
+    Tournament.all.each_with_index do |tournament, index|
+      if index != 0
+        puts "#{index.to_s}. #{tournament.name}"
+      end 
+    end
+  end 
+    
+  
+  
+  def invalid_input_option_error
+    puts "Invalid option, please put in a valid selection."
+  end 
+    
   
   def exiting_program_message
     puts "Thank you, now exiting the program."
@@ -63,8 +80,6 @@ class Tournament
   end 
 end 
 
-
-
 class Scraper
   
   def scrape_tournaments 
@@ -90,10 +105,10 @@ class Scraper
     all_text_from_table = table_rows.collect do |row|
       
       # Go through each of the rows and collect the data as text and store it as a array
-      row_text = row.css("td").collect { |data| data.text }
+      row_text = row.css("td").collect { |data| data.text.strip }
       
       # Place the new array in to the array 
-      [row_text]
+      [*row_text]
     end 
     
     # Return the nested array 
