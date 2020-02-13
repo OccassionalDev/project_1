@@ -78,15 +78,19 @@ class CLI
     puts ""
     print "Selection: "
     
-    input = gets.strip
+    index = gets.strip.to_i 
     
-    if input.to_i > (Tournament.all.count-1) || input.to_i < 1 
+    if index > (Tournament.all.count-1) || index < 1 
       invalid_input_tournament_information_selection
       select_tournament_menu
     end 
     
     puts ""
-    #display_tournament_information
+    display_tournament_information(index)
+  end 
+  
+  def display_tournament_information(index)
+    tournament = Tournament.all[index]
   end 
     
   def invalid_input_option_error
@@ -124,6 +128,12 @@ class Tournament
   
   def save 
     @@all << self 
+  end 
+  
+  def info 
+    
+    
+    
   end 
 end 
 
