@@ -20,7 +20,6 @@ class CLI
     input = gets.strip
     
     case input
-    
       when "1"
         list_tournaments
       
@@ -41,15 +40,63 @@ class CLI
         puts "#{index.to_s}. #{tournament.name}"
       end 
     end
+    
+    list_tournament_menu
+  end 
+  
+  def list_tournament_menu
+    puts "" 
+    puts "Select one of the following options below to proceed:"
+    puts "" 
+    puts "1. Select a tournament to get more information about"
+    puts "2. Return to the main menu"
+    puts "3. Exit the program"
+    puts ""
+    
+    print "Selection: "
+    input = gets.strip 
+    
+    case input 
+      when "1"
+        select_tournament_menu
+        
+      when "2"
+        main_menu
+        
+      when "3"
+        exiting_program_message
+        
+      else 
+        invalid_input_option_error
+        list_tournament_menu
+    end 
+  end 
+  
+  def select_tournament_menu
+    puts ""
+    puts "Please enter a number from the list to get more information about the selected tournament: "
+    puts ""
+    print "Selection: "
+    
+    input = gets.strip
+    
+    if input.to_i > (Tournament.all.count-1) || input.to_i < 1 
+      invalid_input_tournament_information_selection
+      select_tournament_menu
+    end 
+    
+    puts ""
+    #display_tournament_information
   end 
     
-  
-  
   def invalid_input_option_error
     puts "Invalid option, please put in a valid selection."
   end 
-    
   
+  def invalid_input_tournament_information_selection
+    puts "Invalid input. Please put in values for a tournament between 1 and #{(Tournament.all.count-1).to_s}"
+  end 
+    
   def exiting_program_message
     puts "Thank you, now exiting the program."
   end 
