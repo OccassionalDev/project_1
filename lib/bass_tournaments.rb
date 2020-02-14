@@ -165,7 +165,7 @@ class Tournament
     puts "Tournament Name: #{name}"
     puts "Series: #{series}"
     puts "Location: #{location}"
-    puts "Date(s) when the tournament takes place: #{date}"
+    puts "Date(s): #{date}"
   end 
 end 
 
