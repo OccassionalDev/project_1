@@ -86,11 +86,42 @@ class CLI
     end 
     
     puts ""
-    display_tournament_information(index)
+    display_tournament_info(index)
   end 
   
-  def display_tournament_information(index)
+  def display_tournament_info(index)
     tournament = Tournament.all[index]
+    
+    tournament.info 
+    
+    display_tournament_menu
+  end 
+  
+  def display_tournament_menu
+    puts ""
+    puts "What would you like to do now?"
+    puts "1. Return to the tournament list"
+    puts "2. Return to the main menu"
+    puts "3. Exit the program"
+    puts ""
+    print "Selection: "
+    
+    input = gets.strip 
+    
+    case input 
+      when "1"
+        list_tournaments
+        
+      when "2"
+        main_menu
+        
+      when "3"
+        exiting_program_message
+        
+      else 
+        invalid_input_option_error
+        display_tournament_menu
+    end 
   end 
     
   def invalid_input_option_error
@@ -131,9 +162,10 @@ class Tournament
   end 
   
   def info 
-    
-    
-    
+    puts "Tournament Name: #{name}"
+    puts "Series: #{series}"
+    puts "Location: #{location}"
+    puts "Date: #{date}"
   end 
 end 
 
