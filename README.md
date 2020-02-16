@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-To start the list up to add in to a application, add CLI.new.start to load up CLI menu in code. This menu wil allow the user to do the following:
+To start the list up to add in to a application, add `CLI.new.start` to load up CLI menu in code. This menu wil allow the user to do the following:
 
   - Open and view the list of all tournaments for the year
   - Get more information about the selected tournament 
