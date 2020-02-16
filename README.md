@@ -1,8 +1,6 @@
 # BassTournaments
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bass_tournaments`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem scrapes data of bassmaster tournaments and allows the user to see a list tournaments that are availble for the year, even if they passed. Once in the list, the user may select any tournament from the list given and may more information about the tournament they selected, the information being the name, series, dates, and location of the tournament.
 
 ## Installation
 
@@ -22,7 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To start the list up to add in to a application, add CLI.new.start to load up CLI menu. This menu wil allow the user to do the following:
+
+  - Open and view the list of all tournaments for the year
+  - Get more information about the selected tournament 
+  - Exit the program at any time during use 
 
 ## Development
 
