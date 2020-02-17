@@ -21,7 +21,7 @@ class CLI
         list_tournaments
       
       when "2"
-        exiting_program_message
+        exiting_program
         
       else 
         invalid_input_option_error
@@ -61,7 +61,7 @@ class CLI
         main_menu
         
       when "3"
-        exiting_program_message
+        exiting_program
         
       else 
         invalid_input_option_error
@@ -113,7 +113,7 @@ class CLI
         main_menu
         
       when "3"
-        exiting_program_message
+        exiting_program
         
       else 
         invalid_input_option_error
@@ -129,7 +129,8 @@ class CLI
     puts "Invalid input. Please put in values for a tournament between 1 and #{(Tournament.all.count-1).to_s}"
   end 
     
-  def exiting_program_message
+  def exiting_program
     puts "Thank you, now exiting the program."
+    exit
   end 
 end 
